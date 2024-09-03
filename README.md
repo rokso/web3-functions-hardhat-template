@@ -57,6 +57,7 @@ cp .env.example .env
 
 ```
 ALCHEMY_ID=
+INFURA_ID=
 PRIVATE_KEY=
 ```
 
@@ -72,7 +73,7 @@ In `hardhat.config.ts`, you can set up configurations for your Web3 Function run
   w3f: {
     rootDir: "./web3-functions",
     debug: false,
-    networks: ["mumbai", "goerli", "baseGoerli"],
+    networks: ["ethereum", "sepolia", "polygon", "hardhat", "amoy"],
   },
 ```
 
@@ -200,9 +201,10 @@ Hardhat will run your tests in a forked environment by default. You can configur
 
   networks: {
     hardhat: {
+      chainId: 31337,
       forking: {
-        url: `https://eth-goerli.g.alchemy.com/v2/${ALCHEMY_ID}`,
-        blockNumber: 8664000,
+        url: `https://polygon-amoy.g.alchemy.com/v2/${ALCHEMY_ID}`,
+        blockNumber: 4628220,
       },
     },
   }
